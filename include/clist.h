@@ -1,3 +1,10 @@
+/*!
+ @brief Provides the function definitions and the list structures.
+
+ This header provides the definitions of the list functions for the
+ source files and provides the node and the list structure.
+*/
+
 /*
  * The MIT License (MIT)
  * Copyright (c) 2022 Zhengli Wang
@@ -20,13 +27,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-/*!
- @brief Provides the function definitions and the list structures.
-
- This header provides the definitions of the list functions for the
- source files and provides the node and the list structure.
-*/
 
 #include <stdlib.h>
 
