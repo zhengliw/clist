@@ -4,4 +4,4 @@ Nothing in here right now. But I will make this repo big.
 
 # Credits
 
-[Doxygen Theme][https://github.com/jothepro/doxygen-awesome-css]
+[Doxygen Theme](https://github.com/jothepro/doxygen-awesome-css)
