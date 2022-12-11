@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['deprecated_20list_0',['Deprecated List',['../deprecated.html',1,'']]],
-  ['doxygen_20awesome_1',['Doxygen Awesome',['../md_external_resources_doxygen_awesome_css__r_e_a_d_m_e.html',1,'']]]
+  ['end_0',['end',['../structclist.html#afb358f48b1646c750fb9da6c6585be2b',1,'clist']]]
 ];
