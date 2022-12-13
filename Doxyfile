@@ -1,4 +1,8 @@
 # Doxyfile 1.9.5
+# Configured by zhengliw
+
+# Used in this project:
+# https://www.github.com/zhengliw/clist
 
 # This file describes the settings to be used by the documentation system
 # doxygen (www.doxygen.org) for a project.
