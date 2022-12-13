@@ -118,4 +118,19 @@ struct clist
 */
 struct clist *clist_init(size_t item_size);
 
+/*!
+ @brief Append an item.
+ 
+ Append an item at the end of the list while still staying on the 
+ current index.
+
+ @param clist
+ The list to be operated on. This has to be a pointer pointing to 
+ the list pointer, since we are modifying clist::end.
+
+ @return A pointer to the item on the newly created node. If failed
+ appending a node at all, returns NULL.
+*/
+void *clist_append(struct clist ** clist);
+
 #endif

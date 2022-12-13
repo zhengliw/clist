@@ -117,11 +117,42 @@ Functions</h2></td></tr>
 <tr class="memitem:a83bbbbd170da83657ea78544b04c7624"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structclist.html">clist</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clist_8h.html#a83bbbbd170da83657ea78544b04c7624">clist_init</a> (size_t item_size)</td></tr>
 <tr class="memdesc:a83bbbbd170da83657ea78544b04c7624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a clist.  <a href="clist_8h.html#a83bbbbd170da83657ea78544b04c7624">More...</a><br /></td></tr>
 <tr class="separator:a83bbbbd170da83657ea78544b04c7624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86db8ee416852a4395d08b8cefba6594"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clist_8h.html#a86db8ee416852a4395d08b8cefba6594">clist_append</a> (struct <a class="el" href="structclist.html">clist</a> **<a class="el" href="structclist.html">clist</a>)</td></tr>
+<tr class="memdesc:a86db8ee416852a4395d08b8cefba6594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append an item.  <a href="clist_8h.html#a86db8ee416852a4395d08b8cefba6594">More...</a><br /></td></tr>
+<tr class="separator:a86db8ee416852a4395d08b8cefba6594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Provides the function definitions and the list structures. </p>
 <p >This header provides the definitions of the list functions for the source files and provides the node and the list structure. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a86db8ee416852a4395d08b8cefba6594" name="a86db8ee416852a4395d08b8cefba6594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86db8ee416852a4395d08b8cefba6594">&#9670;&#160;</a></span>clist_append()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * clist_append </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structclist.html">clist</a> **&#160;</td>
+          <td class="paramname"><em>clist</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Append an item. </p>
+<p >Append an item at the end of the list while still staying on the current index.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clist</td><td>The list to be operated on. This has to be a pointer pointing to the list pointer, since we are modifying <a class="el" href="structclist.html#afb358f48b1646c750fb9da6c6585be2b">clist::end</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the item on the newly created node. If failed appending a node at all, returns NULL. </dd></dl>
+
+</div>
+</div>
 <a id="a83bbbbd170da83657ea78544b04c7624" name="a83bbbbd170da83657ea78544b04c7624"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83bbbbd170da83657ea78544b04c7624">&#9670;&#160;</a></span>clist_init()</h2>
 
