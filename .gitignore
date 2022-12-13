@@ -1,3 +1,8 @@
+# Custom:
+
+# MacOS
+.DS_Store
+
 # Prerequisites
 *.d
 
