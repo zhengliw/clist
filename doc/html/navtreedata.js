@@ -26,7 +26,8 @@ var NAVTREE =
 [
   [ "clist", "index.html", [
     [ "Clist - A multi-mode linked list library/implementation", "index.html", [
-      [ "Credits", "index.html#autotoc_md1", null ]
+      [ "Links", "index.html#autotoc_md1", null ],
+      [ "Credits", "index.html#autotoc_md2", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
