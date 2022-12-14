@@ -30,13 +30,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      # - name: Doxygen Action
-      #   uses: mattnotmitt/doxygen-action@1.9.5
       - name: Doxygen Action
-        uses: DenverCoder1/doxygen-github-pages-action@v1.2.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          folder: ./doc/html
+        uses: mattnotmitt/doxygen-action@1.9.5
+      # - name: Doxygen Action
+      #   uses: DenverCoder1/doxygen-github-pages-action@v1.2.0
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     folder: ./doc/html
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
