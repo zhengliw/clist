@@ -2,6 +2,14 @@
 
 Nothing in here right now. But I will make this repo big.
 
+Appearently, a lot of people are already cloning this repo, as 
+I can see. Thanks for the attention, but I am sorry to say that
+this project is just beginning right now and not ready at all. 
+There isn't even any runnable code yet!
+
+But if you are interested, please do me a favor and star this 
+repository, since I have big plans. Thanks!
+
 # Links
 
 [Documentation](https://zhengliw.github.io/clist/doc)
