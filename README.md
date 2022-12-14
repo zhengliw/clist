@@ -4,7 +4,7 @@ Nothing in here right now. But I will make this repo big.
 
 # Links
 
-[Documentation](https://zhengliw.github.io/clist)
+[Documentation](https://zhengliw.github.io/clist/doc)
 
 # Credits
 
