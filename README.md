@@ -8,7 +8,7 @@ this project is just beginning right now and not ready at all.
 There isn't even any runnable code yet!
 
 But if you are interested, please do me a favor and star this 
-repository, since I have big plans. Thanks!
+repository, since I have big plans. Thanks! YAY!
 
 # Documentation
 
