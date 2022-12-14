@@ -10,9 +10,16 @@ There isn't even any runnable code yet!
 But if you are interested, please do me a favor and star this 
 repository, since I have big plans. Thanks!
 
-# Links
+# Documentation
+
+The documentation is not provided in the repository. It is automatically 
+generated and uploaded to GitHub pages:
 
 [Documentation](https://zhengliw.github.io/clist/doc)
+
+However, you can clone the repository and run `doxygen Doxyfile` yourself to 
+generate the documentation. The generated Documentation can be found under
+`/doc/html/index.html`.
 
 # Credits
 
