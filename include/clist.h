@@ -23,9 +23,9 @@
 
 /*!
  @file
- @brief Provides the function definitions and the list structures.
+ @brief Provides the function prototypes and the list structures.
 
- This header provides the definitions of the list functions for the
+ This header provides the prototypes of the list functions for the
  source files and provides the node and the list structure.
 */
 
@@ -92,14 +92,19 @@ struct clist
      into a single node.
 
      @var clist::current_index
-     A long variable that is used to note at which index clist::current is,
+     An unsigned long variable that is used to note at which index clist::current is,
      on the list.
+
+     @var clist::list_length
+     A size_t variable indicating the list length/item count that is updated
+     on every list operation involving removal or insertion of items.
     */
     struct node *begin;
     struct node *current;
     struct node *end;
     size_t item_size;
-    long current_index;
+    unsigned long current_index;
+    size_t list_length;
 };
 
 /*!
@@ -111,7 +116,7 @@ struct clist
  @param item_size
  Specifies how big one "item" is. An item is a block of data
  that is defined by you and will be stored on the linked list.
- No explicit type for an item is required, Just provide the size
+ No explicit type for an item is required, just provide the size
  of the item.
 
  @return a pointer to the clist that is created, NULL if failed.
@@ -119,18 +124,121 @@ struct clist
 struct clist *clist_init(size_t item_size);
 
 /*!
- @brief Append an item.
- 
- Append an item at the end of the list while still staying on the 
- current index.
+ @brief Frees a list.
+
+ The function frees all memory which was allocated for the list.
 
  @param clist
- The list to be operated on. This has to be a pointer pointing to 
- the list pointer, since we are modifying clist::end.
+ The pointer to a clist which (including all its items) should be
+ freed.
 
- @return A pointer to the item on the newly created node. If failed
+ @return The count of items in the list.
+*/
+size_t clist_free(struct clist *clist);
+
+/*!
+ @brief Append an item.
+
+ Append an item at the end of the list while still staying on the
+ current index. clist::list_length is updated accordingly.
+
+ @param clist
+ The list to be operated on. This has to be a pointer pointing to
+ the list, since we are modifying clist::end.
+
+ @param item
+ A pointer to the item that has to to be appended.
+
+ @return A pointer to the item on the newly appended node. If failed
  appending a node at all, returns NULL.
 */
-void *clist_append(struct clist ** clist);
+void *clist_append(struct clist *clist, void *item);
+
+/*!
+ @brief Pops the last item from a clist.
+
+ The last item is popped from a clist. clist::list_length is updated
+ accordingly.
+
+ @param clist
+ The list to be operated on.
+
+ @return The item that was popped. If no item was popped because
+ the length of the list was too short, returns NULL.
+*/
+void *clist_pop(struct clist *clist);
+
+/*!
+ @brief Returns the length of the list.
+
+ Returns clist::list_length.
+
+ @param clist
+ The list to be operated on.
+
+ @return Returns clist::list_length.
+*/
+size_t clist_length(const struct clist *clist);
+
+/*!
+ @brief Jump to the given index.
+
+ Jumps to the given index and returns the item on that index.
+
+ @param clist
+ The list to be operated on.
+
+ @param index
+ The index to jump to.
+
+ @return The item on that index of the list if succeeded, NULL
+ if failed (possible reasons are out-of-index access etc.).
+*/
+void *clist_jump(struct clist *clist, unsigned long index);
+
+/*!
+ @brief Return the item on the current index.
+
+ Returns the item on the current index.
+
+ @param clist
+ The list to be operated on.
+
+ @return The item on the current index of the list.
+*/
+void *clist_read(const struct clist *clist);
+
+/*!
+ @brief Replace the item on the current index.
+
+ Replaces the item on the current index, with item.
+
+ @param clist
+ The list to be operated on.
+
+ @param item
+ The item that should replace the item on the current index.
+
+ @return The item that was previously on the current index.
+*/
+void *clist_write(const struct clist *clist, void *item);
+
+/*!
+ @brief Insert an item.
+
+ On the list, insert an item after the index spefified by index.
+
+ @param clist
+ The list to be operated on.
+
+ @param item
+ The item to insert.
+
+ @param index
+ The index after which to insert the item.
+
+ @return The item if insertion was successful, otherwise NULL.
+*/
+void *clist_insert(struct clist *clist, void *item, unsigned long index);
 
 #endif
