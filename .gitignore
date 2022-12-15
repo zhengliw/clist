@@ -1,5 +1,8 @@
 # Custom:
 
+# Do not upload generated documentation
+/doc/html/*
+
 # MacOS
 .DS_Store
 .DS_Store?
