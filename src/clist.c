@@ -35,12 +35,15 @@ struct clist *clist_init(size_t item_size)
 {
     // I am lazy.
     struct clist *clist = (struct clist *)malloc(sizeof(struct clist));
-    clist->begin = NULL;
-    clist->current = NULL;
-    clist->end = NULL;
-    clist->current_index = 0;
-    clist->item_size = item_size;
-    clist->list_length = 0;
+    if (clist)
+    {
+        clist->begin = NULL;
+        clist->current = NULL;
+        clist->end = NULL;
+        clist->current_index = 0;
+        clist->item_size = item_size;
+        clist->list_length = 0;
+    }
     return clist;
 }
 
