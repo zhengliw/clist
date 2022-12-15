@@ -158,7 +158,8 @@ void *clist_append(struct clist *clist, void *item);
  @brief Pops the last item from a clist.
 
  The last item is popped from a clist. clist::list_length is updated
- accordingly.
+ accordingly. If clist::current is the last index node, i.e. clist::current
+ will be popped after this function, move one node back.
 
  @param clist
  The list to be operated on.
@@ -226,7 +227,8 @@ void *clist_write(const struct clist *clist, void *item);
 /*!
  @brief Insert an item.
 
- On the list, insert an item after the index spefified by index.
+ On the list, insert an item after the index specified by index. The current 
+ index (clist::current) is preserved.
 
  @param clist
  The list to be operated on.
@@ -240,5 +242,22 @@ void *clist_write(const struct clist *clist, void *item);
  @return The item if insertion was successful, otherwise NULL.
 */
 void *clist_insert(struct clist *clist, void *item, unsigned long index);
+
+/*!
+ @brief Remove an item.
+
+ Removes the item specified by index. If the current index (clist::current) 
+ is to be removed, move one index back. If this is not possible, move one index
+ forward. If neither of both is possible, clist::current is set to NULL.
+
+ @param clist
+ The list to be operated on.
+
+ @param index
+ The index which has to be removed.
+ 
+ @return The removed item if succeeded, NULL if failed.
+*/
+void *clist_remove(struct clist *clist, unsigned long index);
 
 #endif
