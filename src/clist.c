@@ -50,6 +50,7 @@ struct clist *clist_init(size_t item_size)
 size_t clist_free(struct clist *clist)
 {
     struct node *temp_node;
+    int count = 0;
     for (temp_node = clist->begin; temp_node != NULL; temp_node = temp_node->next)
     {
         if (clist->current->item)
@@ -60,6 +61,8 @@ size_t clist_free(struct clist *clist)
         {
             free(clist->current);
         }
+        count++;
     }
     free(clist);
+    return count;
 }
