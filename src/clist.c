@@ -24,7 +24,7 @@
 /*!
  @file
  @brief Function definitions for clist.h
-
+ @ingroup clist
  This file provides function definitions for clist.h.
 */
 

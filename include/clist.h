@@ -24,7 +24,8 @@
 /*!
  @file
  @brief Provides the function prototypes and the list structures.
-
+ @defgroup clist
+ @ingroup clist
  This header provides the prototypes of the list functions for the
  source files and provides the node and the list structure.
 */
