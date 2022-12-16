@@ -23,12 +23,13 @@
 
 /*!
  @defgroup clist
+ @brief The main module.
 */
 
 /*!
  @file
- @brief Provides the function prototypes and the list structures.
  @ingroup clist
+ @brief Provides the function prototypes and the list structures.
  This header provides the prototypes of the list functions for the
  source files and provides the node and the list structure.
 */
@@ -37,7 +38,10 @@
 
 #ifndef __CLIST_H
 #define __CLIST_H
-
+/*!
+ @addtogroup clist
+ @{
+*/
 struct node
 {
     /*!
@@ -263,5 +267,9 @@ void *clist_insert(struct clist *clist, void *item, unsigned long index);
  @return The removed item if succeeded, NULL if failed.
 */
 void *clist_remove(struct clist *clist, unsigned long index);
+
+/*!
+    @}
+*/
 
 #endif
