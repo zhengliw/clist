@@ -53,7 +53,7 @@ size_t clist_free(struct clist *clist)
 {
     struct node *temp_node;
     int count = 0; // Item count
-    for (clist->current = temp_node = clist->begin; temp_node != NULL; clist->current = temp_node = temp_node->next)
+    for (clist->current = temp_node = clist->begin; clist->current != NULL; clist->current = temp_node = temp_node->next)
     // clist->current is to be freed
     // temp_node stores clist->current so that clist->current->next
     // can be read
