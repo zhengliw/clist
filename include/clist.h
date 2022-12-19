@@ -118,7 +118,7 @@ struct clist
 /*!
  @brief Create a clist.
 
- This function is used to create a clist, performing all
+ This function is used to create and initialize a clist, performing all
  necessary steps while doing this.
 
  @param item_size
@@ -151,8 +151,10 @@ size_t clist_free(struct clist *clist);
  current index. clist::list_length is updated accordingly.
 
  @param clist
- The list to be operated on. This has to be a pointer pointing to
+ The list to be operated on. This has to be a modifiable pointer pointing to
  the list, since we are modifying clist::end.
+ The item will be copied onto the list instead of being linked onto, 
+ i.e. using memcpy.
 
  @param item
  A pointer to the item that has to to be appended.
@@ -160,7 +162,7 @@ size_t clist_free(struct clist *clist);
  @return A pointer to the item on the newly appended node. If failed
  appending a node at all, returns NULL.
 */
-void *clist_append(struct clist *clist, void *item);
+void *clist_append(struct clist *clist, const void *item);
 
 /*!
  @brief Pops the last item from a clist.
