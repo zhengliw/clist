@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
-        "clist"
+        "clist",
+        "newnode"
     ],
     "c-cpp-flylint.cppcheck.suppressions": [
         "cstyleCast",

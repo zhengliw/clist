@@ -30,6 +30,8 @@
 
 #include "../include/clist.h"
 #include <stdlib.h>
+#include <string.h>
+
 
 struct clist *clist_init(size_t item_size)
 {
@@ -50,8 +52,11 @@ struct clist *clist_init(size_t item_size)
 size_t clist_free(struct clist *clist)
 {
     struct node *temp_node;
-    int count = 0;
-    for (temp_node = clist->begin; temp_node != NULL; temp_node = temp_node->next)
+    int count = 0; // Item count
+    for (clist->current = temp_node = clist->begin; clist->current != NULL; clist->current = temp_node = temp_node->next)
+    // clist->current is to be freed
+    // temp_node stores clist->current so that clist->current->next
+    // can be read
     {
         if (clist->current->item)
         {
@@ -63,6 +68,25 @@ size_t clist_free(struct clist *clist)
         }
         count++;
     }
+    // Free the list struct itself
     free(clist);
     return count;
+}
+
+void *clist_append(struct clist *clist, const void *item)
+{
+    struct node * newnode = (struct node*) malloc(sizeof(struct node));
+    if (newnode)
+    {
+        memcpy(&(newnode->item), item, clist->item_size);
+        newnode->prev = clist->end;
+        newnode->next = NULL;
+        clist->end = newnode;
+
+        return newnode->item;
+    }
+    else
+    {
+        return NULL;
+    }
 }
