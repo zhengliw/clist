@@ -5,9 +5,9 @@
     ],
     "c-cpp-flylint.cppcheck.suppressions": [
         "cstyleCast",
-        "unusedStructMember:\"?.h\""
+        //"unusedStructMember:?.h"
     ],
-    /* "c-cpp-flylint.cppcheck.extraArgs": [
-        "--suppressions='unusedStructMember:*.h'",
-    ] */
+    "c-cpp-flylint.cppcheck.extraArgs": [
+        "--suppressions-list=.vscode/cppcheck-suppressions.txt",
+    ]
 }
