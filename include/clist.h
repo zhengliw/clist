@@ -155,7 +155,7 @@ size_t clist_free(struct clist *clist);
  @param clist
  The list to be operated on. This has to be a modifiable pointer pointing to
  the list, since we are modifying clist::end.
- The item will be copied onto the list instead of being linked onto, 
+ The item will be copied onto the list instead of being linked onto,
  i.e. using memcpy.
 
  @param item
@@ -239,7 +239,7 @@ void *clist_write(const struct clist *clist, void *item);
 /*!
  @brief Insert an item.
 
- On the list, insert an item after the index specified by index. The current 
+ On the list, insert an item after the index specified by index. The current
  index (clist::current) is preserved.
 
  @param clist
@@ -258,7 +258,7 @@ void *clist_insert(struct clist *clist, void *item, unsigned long index);
 /*!
  @brief Remove an item.
 
- Removes the item specified by index. If the current index (clist::current) 
+ Removes the item specified by index. If the current index (clist::current)
  is to be removed, move one index back. If this is not possible, move one index
  forward. If neither of both is possible, clist::current is set to NULL.
 
@@ -267,7 +267,7 @@ void *clist_insert(struct clist *clist, void *item, unsigned long index);
 
  @param index
  The index which has to be removed.
- 
+
  @return The removed item if succeeded, NULL if failed.
 */
 void *clist_remove(struct clist *clist, unsigned long index);

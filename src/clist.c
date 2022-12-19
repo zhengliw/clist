@@ -93,10 +93,10 @@ void *clist_append(struct clist *clist, const void *item)
 
 void *clist_pop(struct clist *clist)
 {
-    struct node * temp_end_node = NULL;
-    void * temp_item = NULL;
+    struct node *temp_end_node = NULL;
+    void *temp_item = NULL;
 
-    if(clist->list_length > 1)
+    if (clist->list_length > 1)
     {
         temp_end_node = clist->end;
         temp_item = clist->end->item;
