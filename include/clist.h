@@ -24,6 +24,8 @@
 /*!
  @defgroup clist
  @brief The main module.
+ Please note that as of now, not all functions have been implemented. Only the
+ documentation for the function prototype is displayed here.
 */
 
 /*!
