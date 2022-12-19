@@ -1,5 +1,12 @@
 {
     "cSpell.words": [
         "clist"
-    ]
+    ],
+    "c-cpp-flylint.cppcheck.suppressions": [
+        "cstyleCast",
+        "unusedStructMember:\"?.h\""
+    ],
+    /* "c-cpp-flylint.cppcheck.extraArgs": [
+        "--suppressions='unusedStructMember:*.h'",
+    ] */
 }
