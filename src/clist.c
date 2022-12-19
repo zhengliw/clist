@@ -32,7 +32,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 struct clist *clist_init(size_t item_size)
 {
     // I am lazy.
@@ -51,13 +50,14 @@ struct clist *clist_init(size_t item_size)
 
 size_t clist_free(struct clist *clist)
 {
-    struct node *temp_node;
+    struct node *temp_node_next;
     int count = 0; // Item count
-    for (clist->current = temp_node = clist->begin; clist->current != NULL; clist->current = temp_node = temp_node->next)
+    for (clist->current = clist->begin; clist->current != NULL; clist->current = temp_node_next)
     // clist->current is to be freed
-    // temp_node stores clist->current so that clist->current->next
-    // can be read
+    // temp_node_next stores clist->current->next so that clist->current->next
+    // can be read after it's been freed.
     {
+        temp_node_next = clist->current->next;
         if (clist->current->item)
         {
             free(clist->current->item);
@@ -75,7 +75,7 @@ size_t clist_free(struct clist *clist)
 
 void *clist_append(struct clist *clist, const void *item)
 {
-    struct node * newnode = (struct node*) malloc(sizeof(struct node));
+    struct node *newnode = (struct node *)malloc(sizeof(struct node));
     if (newnode)
     {
         memcpy(&(newnode->item), item, clist->item_size);
@@ -88,5 +88,35 @@ void *clist_append(struct clist *clist, const void *item)
     else
     {
         return NULL;
+    }
+}
+
+void *clist_pop(struct clist *clist)
+{
+    struct node * temp_end_node = NULL;
+    void * temp_item = NULL;
+
+    if(clist->list_length > 1)
+    {
+        temp_end_node = clist->end;
+        temp_item = clist->end->item;
+
+        // Disconnect last node from list
+        clist->end->prev->next = NULL;
+        clist->end = clist->end->prev;
+
+        free(temp_end_node);
+        return temp_item;
+    }
+    else // Only 1 node in list
+    {
+        temp_end_node = clist->end;
+        temp_item = clist->end->item;
+
+        clist->begin = NULL;
+        clist->end = NULL;
+
+        free(temp_end_node);
+        return temp_item;
     }
 }
