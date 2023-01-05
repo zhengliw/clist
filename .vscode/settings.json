@@ -5,9 +5,14 @@
     ],
     "c-cpp-flylint.cppcheck.suppressions": [
         "cstyleCast",
-        //"unusedStructMember:?.h"
+        "*:README:*",
+        "*:Doxyfile:*",
+        "*:LICENSE:*",
+        "unusedStructMember:include/*:*"
     ],
+    "c-cpp-flylint.cppcheck.verbose": true,
     "c-cpp-flylint.cppcheck.extraArgs": [
-        "--suppressions-list=.vscode/cppcheck-suppressions.txt",
+        "-iinclude",
+        //"--suppress=unusedStructMember"
     ]
 }
